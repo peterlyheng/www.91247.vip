@@ -1,0 +1,262 @@
+@charset "UTF-8";
+/*
+app ID: UmMsg
+Author: 优美主题
+Author URI: http://www.umtheme.com/
+name:优美自动复制口令插件
+*/
+.redBags {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 99999;
+  display: none;
+}
+.redBags .box,
+.redBags .img {
+  width: 300px;
+  min-height: 100px;
+  padding: 30px;
+  font-size: 14px;
+  color: #333;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+}
+.redBags .box {
+  width: 90%;
+  max-width: 400px;
+  padding: 28px 30px 30px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.redBags .box h1,
+.redBags .box h2,
+.redBags .box h3,
+.redBags .box h4,
+.redBags .box h5,
+.redBags .box h6 {
+  margin: 0;
+  padding-top: 0;
+  font-weight: normal;
+  font-size: 20px;
+  color: #333;
+  padding-bottom: 15px;
+  line-height: 1.5;
+}
+.redBags .box h1 {
+  font-size: 28px;
+  padding-bottom: 20px;
+}
+.redBags .box h2 {
+  font-size: 26px;
+  padding-bottom: 18px;
+}
+.redBags .box h3 {
+  font-size: 24px;
+  padding-bottom: 16px;
+}
+.redBags .box h4 {
+  font-size: 22px;
+  padding-bottom: 14px;
+}
+.redBags .box h5 {
+  font-size: 18px;
+  padding-bottom: 12px;
+}
+.redBags .box h6 {
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+.redBags .box p {
+  font-size: 14px;
+  color: #666;
+  line-height: 26px;
+  padding: 5px 0 0 0;
+}
+.redBags .box em {
+  color: #ff6b57;
+  font-style: normal;
+}
+.redBags .box b {
+  color: #2ea7e0;
+  font-weight: normal;
+  font-style: normal;
+}
+.redBags .box .msgText hr {
+  height: 1px;
+  width: 100%;
+  display: block;
+  border: none;
+  border-top: 1px dashed #e8e8e8;
+  margin-top: 12px;
+}
+.redBags .box .msgText a[class*="btn"] {
+  min-width: 40%;
+  line-height: normal;
+  padding: 10px;
+  text-align: center;
+  background: #00ada7;
+  color: #fff;
+  display: inline-block;
+  margin: 15px 8px 5px 8px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.redBags .box .msgText a.btna {
+  background: rgba(0, 0, 0, 0) linear-gradient(120deg, #8f75fd 0%, #6364fd 100%);
+  box-shadow: 0 5px 15px rgba(55, 56, 113, 0.2);
+}
+.redBags .box .msgText a.btnb {
+  background: rgba(0, 0, 0, 0) linear-gradient(120deg, #fc987e 0%, #f66896 100%);
+  box-shadow: 0 5px 15px rgba(82, 34, 50, 0.2);
+}
+.redBags .box .msgText a.btnc {
+  background: rgba(0, 0, 0, 0) linear-gradient(120deg, #0ceca4 0%, #2fd4b2 100%);
+  box-shadow: 0 5px 15px rgba(20, 96, 80, 0.2);
+}
+.redBags .box .msgText a.btnd {
+  background: rgba(0, 0, 0, 0) linear-gradient(120deg, #ffa200 0%, #ff6200 100%);
+  box-shadow: 0 5px 15px rgba(86, 59, 46, 0.2);
+}
+.redBags.open .box,
+.redBags.open .img {
+  -webkit-animation-duration: 0.65s;
+  animation-duration: 0.65s;
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+}
+.redBags .img {
+  width: 95%;
+  max-width: 360px;
+  background: none;
+  top: 48.5%;
+  font-size: 0;
+  text-align: center;
+}
+.redBags .img img {
+  width: 100%;
+  max-width: 100%;
+}
+.redBags i.close {
+  width: 32px;
+  height: 32px;
+  background-image: url(../images/close.png);
+  background-size: cover;
+  display: inline-block;
+  margin-top: 10px;
+  cursor: pointer;
+  float: none;
+}
+.redBags .box .close {
+  line-height: normal;
+  padding: 0px 0;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+.redBags .box .close.icon {
+  width: 24px;
+  height: 24px;
+  top: -12px;
+  right: -12px;
+  position: absolute;
+  display: block;
+  background-image: url("../images/closea.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #f66;
+  border-radius: 100px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+#copyt {
+  position: absolute;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  font-size: 0;
+  display: block;
+  left: 0;
+}
+.hideUm,
+.redBags em.jlist {
+  display: none;
+  visibility: hidden;
+}
+@-webkit-keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0) translate(-50%, -50%);
+    transform: translate3d(0, -3000px, 0) translate(-50%, -50%);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0) translate(-50%, -50%);
+    transform: translate3d(0, 25px, 0) translate(-50%, -50%);
+  }
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0) translate(-50%, -50%);
+    transform: translate3d(0, -10px, 0) translate(-50%, -50%);
+  }
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0) translate(-50%, -50%);
+    transform: translate3d(0, 5px, 0) translate(-50%, -50%);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0) translate(-50%, -50%);
+    transform: translate3d(0, 0, 0) translate(-50%, -50%);
+  }
+}
+@keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0) translate(-50%, -50%);
+    transform: translate3d(0, -3000px, 0) translate(-50%, -50%);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0) translate(-50%, -50%);
+    transform: translate3d(0, 25px, 0) translate(-50%, -50%);
+  }
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0) translate(-50%, -50%);
+    transform: translate3d(0, -10px, 0) translate(-50%, -50%);
+  }
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0) translate(-50%, -50%);
+    transform: translate3d(0, 5px, 0) translate(-50%, -50%);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0) translate(-50%, -50%);
+    transform: translate3d(0, 0, 0) translate(-50%, -50%);
+  }
+}
+@media screen and (max-width: 360px) {
+  .redBags .box .msgText a[class*="btn"] {
+    max-width: 80%;
+    width: 100%;
+  }
+}
